@@ -54,8 +54,7 @@ def elimage(bot,update,file_id):
         return text
 
 def photo(bot,update):
-    file = requests.get(url=bot.get_file(update.channel_post.photo[-1].file_id).file_path).content
-    file_id = upload(media_file=file, mime_type="image/jpeg")['id']
+    file_id = upload(media_file=update.channel_post.photo[-1].file_id, mime_type="image/jpeg")['id']
     text = update.channel_post.caption
     print(mastodon.status_post(status=text,media_ids=[file_id]))
 
