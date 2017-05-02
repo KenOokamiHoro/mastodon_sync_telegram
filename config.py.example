@@ -1,0 +1,22 @@
+'''
+DO NOT include Telegram Bot API token here ! 
+'''
+
+# API token
+token = ""
+
+# target channel's id.
+# when the bot is joined as administrator, the ID of channel will shown there.
+channel = ""
+
+# this bot's id.
+# start a private chat with this bot to show it .
+bot = ""
+
+# Where is your mastodon instance?
+mastodon_instance = '' 
+# login information.
+# Recommend to use a dedicated account.
+mastodon_login = ''
+mastodon_password = ''
+
