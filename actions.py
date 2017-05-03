@@ -19,10 +19,7 @@ if config.mastodon_instance:
     )
 
 def id(bot,update):
-    '''
-    response /id . may for development purpose.
-    use /id
-    '''
+    '''response /id . may for development purpose.'''
     print(update)
     bot.sendMessage(chat_id=update.channel_post.chat_id,
                     text="This channel's ID is {}".format(chatid))
@@ -53,9 +50,15 @@ def elimage(bot,update,file_id):
     else:
         return text
 
+def getauthor(update):
+    try:
+        return "↩️ " + update.channel_post.forward_from.first_name+update.channel_post.forward_from.last_name
+    except AttributeError:
+        return update.channel_post.from_user.first_name + update.channel_post.from_user.last_name
+
 def photo(bot,update):
     file_id = upload(file_id=update.channel_post.photo[-1].file_id, mime_type="image/jpeg")['id']
-    text = update.channel_post.caption
+    text = "{}: {}".fotmat(getauthor(update),update.channel_post.caption)
     print(mastodon.status_post(status=text,media_ids=[file_id]))
 
 def video(bot,update):
@@ -68,11 +71,12 @@ def document(bot,update):
     except ValueError as err:
         print(str(err))
     else:
-        print(mastodon.toot("{} {}".format(text,update.channel_post.caption)))
+        print(mastodon.toot("{}: {} {}".format(getauthor(update),text,update.channel_post.caption)))
 
 def updates(bot,update):
     print(update)
 
+
 def text(bot,update):
-    message = update.channel_post.text
+    message = "{}: {}".fotmat(getauthor(update),update.channel_post.text)
     print(mastodon.toot(message))
