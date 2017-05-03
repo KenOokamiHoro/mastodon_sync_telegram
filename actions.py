@@ -58,7 +58,7 @@ def getauthor(update):
 
 def photo(bot,update):
     file_id = upload(file_id=update.channel_post.photo[-1].file_id, mime_type="image/jpeg")['id']
-    text = "{}: {}".fotmat(getauthor(update),update.channel_post.caption)
+    text = "{}: {}".format(getauthor(update),update.channel_post.caption)
     print(mastodon.status_post(status=text,media_ids=[file_id]))
 
 def video(bot,update):
@@ -78,5 +78,5 @@ def updates(bot,update):
 
 
 def text(bot,update):
-    message = "{}: {}".fotmat(getauthor(update),update.channel_post.text)
+    message = "{}: {}".format(getauthor(update),update.channel_post.text)
     print(mastodon.toot(message))
