@@ -57,7 +57,7 @@ def getauthor(update):
         return update.channel_post.from_user.first_name + update.channel_post.from_user.last_name
 
 def photo(bot,update):
-    file_id = upload(bot=bot,file_id=update.channel_post.photo[-1].file_id, mime_type="image/jpeg")['id']
+    file_id = upload(bot=bot,file_id=update.channel_post.photo[-1].file_id, mime_type="image/jpeg")
     text = "{}: {}".format(getauthor(update),update.channel_post.caption)
     print(mastodon.status_post(status=text,media_ids=[file_id]))
 
