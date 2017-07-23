@@ -20,3 +20,8 @@ mastodon_instance = ''
 mastodon_login = ''
 mastodon_password = ''
 
+# Twitter API Tokens 
+twitter_consumer_key='consumer_key',
+twitter_consumer_secret='consumer_secret',
+twitter_access_token_key='access_token',
+twitter_access_token_secret='access_token_secret'
