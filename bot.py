@@ -4,6 +4,7 @@
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import MessageHandler
+from telegram.ext import Job
 from telegram.ext.filters import Filters
 from telegram.bot import Bot
 from telegram.chataction import ChatAction
@@ -18,6 +19,7 @@ class TransferBot:
     def __init__(self):
         # Setting up bot
         self.updater = Updater(token=config.token)
+        self.job_queue = self.updater.job_queue
         self.dispatcher = self.updater.dispatcher
         self.botObj = Bot(token=config.token)
         # Register handlers
@@ -31,6 +33,13 @@ class TransferBot:
         self.dispatcher.add_handler(CommandHandler('start', actions.start))
         self.dispatcher.add_handler(CommandHandler('id', actions.id))
         self.dispatcher.add_handler(CommandHandler('getme', actions.getme))
+        if config.horo:
+            self.job_queue.run_repeating(actions.fetch_kenookamihoro_mastodon,
+                                         interval=600, first=10,
+                                         context={'mastodon': 6669492})
+            self.job_queue.run_repeating(actions.fetch_kenookamihoro_twitter,
+                                         interval=600, first=0,
+                                         context={'twitter': 893061160550793216})
         # self.dispatcher.add_handler(MessageHandler(
         #    filters.always_true, actions.updates))
         # Start bot

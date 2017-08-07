@@ -1,27 +1,59 @@
 '''
-DO NOT include Telegram Bot API token here ! 
+DO NOT include any token here !
 '''
+from mastodon import Mastodon
+from twitter import Api
+
+
+def init_mastodon_instance(user):
+    mastodon = Mastodon(client_id=user['client_id'],
+                        client_secret=user['client_secret'],
+                        api_base_url=user['instance'],
+                        access_token=user['user_token'])
+    return mastodon
+
+
+def init_twitter_instance(user):
+    twitter_instance = Api(consumer_key=twitter_consumer_key,
+                           consumer_secret=twitter_consumer_secret,
+                           access_token_key=user['access_token_key'],
+                           access_token_secret=user['access_token_secret']
+                           )
+    return twitter_instance
+
+# Don't change lines before this unless you know what are you doing.
 
 # API token
 token = ""
 
 # target channel's id.
-# when the bot is joined as administrator, the ID of channel will shown there.
+# use some skill (like @getid_bot ) to get it.
 channel = ""
 
 # this bot's id.
 # start a private chat with this bot to show it .
 bot = ""
 
-# Where is your mastodon instance?
-mastodon_instance = '' 
-# login information.
-# Recommend to use a dedicated account.
-mastodon_login = ''
-mastodon_password = ''
+# Your mastodon application's client id / secret.
+# generate it through init_mastodon.py
 
-# Twitter API Tokens 
-twitter_consumer_key='consumer_key',
-twitter_consumer_secret='consumer_secret',
-twitter_access_token_key='access_token',
-twitter_access_token_secret='access_token_secret'
+# Your twitter application's customer key / secret.
+twitter_consumer_key = ''
+twitter_consumer_secret = ''
+
+# @WolfofYoitsu's (Sender) 's login information.
+sender = {
+    'mastodon': {
+        'instance': '',
+        'client_id': '',
+        'client_secret': '',
+        'user_token': ''
+    },
+    'twitter': {
+        'access_token_key': '',
+        'access_token_secret': ''
+    },
+}
+
+# Don't change it unless you are Horo.
+horo = {}
