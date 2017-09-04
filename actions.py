@@ -64,8 +64,7 @@ def getauthor(update):
                          update.channel_post.forward_from.first_name,
                          (update.channel_post.forward_from.last_name or '')])
     else:
-        return ' '.join([update.channel_post.from_user.first_name,
-                         (update.channel_post.from_user.last_name or '')])
+        return ''
 
 
 def photo(bot, update):

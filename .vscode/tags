@@ -3737,6 +3737,7 @@ factory	../venv/lib/python3.6/importlib/util.py	/^    def factory(cls, loader):$
 fdopen	../venv/lib/python3.6/os.py	/^def fdopen(fd, *args, **kwargs):$/;"	kind:function	line:1011
 fetch_kenookamihoro_mastodon	../actions.py	/^def fetch_kenookamihoro_mastodon(bot, job):$/;"	kind:function	line:130
 fetch_kenookamihoro_twitter	../actions.py	/^def fetch_kenookamihoro_twitter(bot, job):$/;"	kind:function	line:213
+fetch_sender_mastodon_notifications	../actions.py	/^def fetch_sender_mastodon_notifications(bot, job):$/;"	kind:function	line:236
 file	../venv/lib/python3.6/tempfile.py	/^    file = None  # Set here since __del__ checks it$/;"	kind:variable	line:421
 file_encoding	../venv/lib/python3.6/codecs.py	/^    file_encoding = 'unknown'$/;"	kind:variable	line:770
 filemode	../venv/lib/python3.6/stat.py	/^def filemode(mode):$/;"	kind:function	line:139
@@ -4568,6 +4569,7 @@ prev_sys_path	../venv/bin/activate_this.py	/^prev_sys_path = list(sys.path)$/;"	
 prf	../venv/lib/python3.6/hashlib.py	/^        def prf(msg, inner=inner, outer=outer):$/;"	kind:function	line:200
 print_function	../init_twitter.py	/^from __future__ import print_function$/;"	kind:namespace	line:16
 print_function	../venv/lib/python3.6/__future__.py	/^print_function = _Feature((2, 6, 0, "alpha", 2),$/;"	kind:variable	line:126
+process_notifications	../actions.py	/^def process_notifications(bot, notifications):$/;"	kind:function	line:221
 process_toots	../actions.py	/^def process_toots(bot, toots):$/;"	kind:function	line:118
 process_tweets	../actions.py	/^def process_tweets(bot, tweets):$/;"	kind:function	line:179
 ptcp154.py	../venv/lib/python3.6/encodings/ptcp154.py	1;"	kind:file	line:1

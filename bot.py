@@ -36,10 +36,10 @@ class TransferBot:
         if config.horo:
             self.job_queue.run_repeating(actions.fetch_kenookamihoro_mastodon,
                                          interval=600, first=10,
-                                         context={'mastodon': 6669492})
+                                         context={'mastodon': 7892883})
             self.job_queue.run_repeating(actions.fetch_kenookamihoro_twitter,
                                          interval=600, first=0,
-                                         context={'twitter': 893061160550793216})
+                                         context={'twitter': 903925738293805056})
         # self.dispatcher.add_handler(MessageHandler(
         #    filters.always_true, actions.updates))
         # Start bot
